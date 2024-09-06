@@ -1,0 +1,16 @@
+#captcha_lite_canvas{
+    border-color:white;
+    height: 55px;
+}
+
+#captcha_lite_container{
+    height: 55px;
+
+}
+
+#captcha_lite_reload_btn{
+    color: white;
+    margin-left: 10px;
+    background-color:#AB7442 ;
+    width: 25px;
+}
