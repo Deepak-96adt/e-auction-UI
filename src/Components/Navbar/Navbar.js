@@ -399,7 +399,7 @@ function Navbar() {
                     </Link>
                   </div>
                 </div>
-                <Link to="/demo">
+                <Link to="/contact">
                   <a
                     className={
                       activeBtn === "contact"

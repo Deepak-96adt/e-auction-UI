@@ -96,13 +96,12 @@ function EditProfile() {
       axios
         .patch(UpdateUserApi, condition_obj)
         .then((result) => {
-          if (result.data.response === "User updated successfully") {
+          if (result?.data?.response === "User updated successfully") {
             setOutput("");
             showAlert("success",name+" Updated Profile Successfully...")
             setTimeout(() => {
               setMyAlert(null);
             }, 3000);
-            console.log(result.data.response);
           }
 
           var condition = { _id: localStorage.getItem("_id") };
@@ -113,7 +112,7 @@ function EditProfile() {
               },
             })
             .then((response) => {
-              var user = response.data.userDetails[0];
+              var user = response?.data?.userDetails[0];
               localStorage.setItem("name", user.name);
               localStorage.setItem("email", user.email);
               localStorage.setItem("mobile", user.mobile);
@@ -122,8 +121,8 @@ function EditProfile() {
               localStorage.setItem("gender", user.gender);
             })
             .catch((error) => {
-              alert(error.response.data.response);
-              console.log(error);
+              alert(error?.response?.data?.response);
+              console.error(error);
             });
         })
         .catch((error) => {
@@ -131,7 +130,7 @@ function EditProfile() {
           setTimeout(() => {
             setMyAlert(null);
           }, 3000);
-          console.log(error);
+          console.error(error);
         });
     }
   };

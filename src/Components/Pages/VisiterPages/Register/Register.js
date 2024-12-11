@@ -69,16 +69,15 @@ function Register() {
             setAddress("");
             setOutput("");
             setOutput1("");
-            showAlert("success",result.data.status);
+            showAlert("success",result?.data?.status);
             setTimeout(() => {
               setMyAlert(null)
             }, 3000);
           }
-          console.log(result.data.status);
         })
         .catch((error) => {
-          const text = error.response.data.status;
-          console.log(text);
+          const text = error?.response?.data?.status;
+          console.error(text);
           if (text.search("email") > 0) {
             setErrorEmail(
               <span style={{ color: "red" }}>

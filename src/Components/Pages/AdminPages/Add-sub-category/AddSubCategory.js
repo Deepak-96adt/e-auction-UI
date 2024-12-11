@@ -63,7 +63,7 @@ function AddSubCategory() {
         }, 3000);
       })
       .catch((error) => {
-        console.log(error);
+        console.error(error);
         showAlert("danger",error.message);
         setTimeout(() => {
           setMyAlert(null);
@@ -76,7 +76,7 @@ function AddSubCategory() {
     const fetchData = async () => {
       try {
         const response = await axios.get(FetchCategoryApi);
-        setCatList(response.data.categoryDetails);
+        setCatList(response?.data?.categoryDetails);
       } catch (error) {
         console.error("Error fetching data:", error);
       }

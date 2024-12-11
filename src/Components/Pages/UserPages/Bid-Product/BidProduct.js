@@ -29,8 +29,7 @@ function BidProduct() {
             condition_obj: condition_obj,
           },
         });
-
-        setProduct(response.data.productList);
+        setProduct(response?.data?.productList);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -45,8 +44,8 @@ function BidProduct() {
             condition_obj: condition_obj2,
           },
         });
-        const length = response.data.bidDetails.length
-        setCurrentPrice2(response.data.bidDetails[length-1].bidprice);
+        const length = response?.data?.bidDetails?.length
+        setCurrentPrice2(response?.data?.bidDetails[length-1]?.bidprice);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -68,14 +67,13 @@ function BidProduct() {
       axios
         .post(SaveBidApi, bidDetail)
         .then((response) => {
-          console.log(response);
           showAlert("success", response.data.status);
           setTimeout(() => {
             setMyAlert(null);
           }, 3000);
         })
         .catch((error) => {
-          console.log(error);
+          console.error(error);
           showAlert("danger", error.message);
           setTimeout(() => {
             setMyAlert(null);

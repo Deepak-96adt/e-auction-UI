@@ -33,7 +33,7 @@ function BidProductList() {
             condition_obj: condition_obj,
           },
         });
-        setProductDetails(response.data.productList);
+        setProductDetails(response?.data?.productList);
       } catch (error) {
         console.error("Error fetching data:", error);
       }

@@ -55,7 +55,7 @@ function AddCategory() {
         },3000)
       })
       .catch((error) => {
-        console.log(error);
+        console.error(error);
         showAlert("danger",error.message);
         setTimeout(()=>{
           setMyAlert(null);

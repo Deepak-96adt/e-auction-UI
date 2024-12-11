@@ -37,7 +37,7 @@ function ManageUser() {
           navigate("/manageuser");
         })
         .catch((error) => {
-          console.log(error);
+          console.error(error);
         });
     } else if (task === "verify") {
       let condition_obj = {
@@ -66,7 +66,7 @@ function ManageUser() {
           navigate("/manageuser");
         })
         .catch((error) => {
-          console.log(error);
+          console.error(error);
         });
     }
   };
@@ -80,7 +80,7 @@ function ManageUser() {
             condition_obj: condition_obj,
           },
         });
-        setUserDetails(response.data.userDetails);
+        setUserDetails(response?.data?.userDetails);
       } catch (error) {
         console.error("Error fetching data:", error);
       }

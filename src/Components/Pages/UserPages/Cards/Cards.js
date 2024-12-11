@@ -33,10 +33,10 @@ if (props.path=="#") {
   axios.get(FetchBidApi,{ params: {
     condition_obj: condition_obj,
   },}).then((result)=>{
-    let length = result.data.bidDetails.length-1;
-    setBidDetails(result.data.bidDetails[length]);
+    let length = result?.data?.bidDetails?.length-1;
+    setBidDetails(result?.data?.bidDetails[length]);
   }).catch((error)=>{
-    console.log(error);
+    console.error(error);
   })
 }
 
@@ -49,10 +49,9 @@ const handlePayment = async () => {
   }
   try {
     const response = await axios.post(SavePaymentApi,paymentDetails);
-    console.log(response);
 
       // Payment gateway URL (replace with your actual payment gateway URL)
-      let paymentUrl = response.data.url;
+      let paymentUrl = response?.data?.url;
   
       // Open a mini window
       let width = 600;

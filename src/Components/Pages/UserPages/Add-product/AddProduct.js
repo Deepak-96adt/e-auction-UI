@@ -42,8 +42,7 @@ function AddProduct() {
               condition_obj: condition_obj,
             },
           });
-          console.log(response.data.categoryDetails);
-          setSubCatList(response.data.categoryDetails);
+          setSubCatList(response?.data?.categoryDetails);
         } catch (error) {
           console.error("Error fetching data:", error);
         }
@@ -102,8 +101,7 @@ function AddProduct() {
     axios
       .post(SaveProductApi, formData, config)
       .then((response) => {
-        console.log(response);
-        showAlert("success",response.data.status);
+        showAlert("success",response?.data?.status);
         setTitle("");
         setCatName("");
         setSubCatName("");
@@ -115,7 +113,7 @@ function AddProduct() {
         }, 3000);
       })
       .catch((error) => {
-        console.log(error);
+        console.error(error);
         showAlert("danger",error.message);
         setTimeout(() => {
           setOutput("");
@@ -128,8 +126,7 @@ function AddProduct() {
     const fetchData = async () => {
       try {
         const response = await axios.get(FetchCategoryApi);
-        console.log(response.data.categoryDetails);
-        setCatList(response.data.categoryDetails);
+        setCatList(response?.data?.categoryDetails);
       } catch (error) {
         console.error("Error fetching data:", error);
       }

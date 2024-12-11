@@ -28,7 +28,6 @@ import ProductList from "./Components/Pages/UserPages/Product-List/ProductList";
 import BidProductList from "./Components/Pages/UserPages/Bid-ProductList/BidProductList";
 import BidProduct from "./Components/Pages/UserPages/Bid-Product/BidProduct";
 import BiddingDetails from "./Components/Pages/UserPages/Bidding-Details/BiddingDetails";
-import Demo from "./Components/Demo";
 
 
 function App() {
@@ -64,7 +63,6 @@ function App() {
         <Route path="/bidproductlist" element={<BidProductList />}></Route>
         <Route path="/bidproduct/:_id" element={<BidProduct />}></Route>
         <Route path="/biddingdetails/:p_id" element={<BiddingDetails />}></Route>
-        <Route path="/demo" element={<Demo />}></Route>
       </Routes>
 
       <Footer />

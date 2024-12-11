@@ -20,17 +20,13 @@ function ProductList() {
             condition_obj: condition_obj,
           },
         });
-        
-        console.log(response.data.productList);
-        setProductList(response.data.productList);
+        setProductList(response?.data?.productList);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
     };
     fetchData();
   }, [subcatnm]);
-
-  console.log(productList);
   
 
   return (

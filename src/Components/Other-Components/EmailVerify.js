@@ -8,7 +8,6 @@ function EmailVerify(){
     const [triggerFetch , setTriggerFetch] = useState(false);
     const navigate = useNavigate()
     var {  email } = useParams();
-    console.log(email);
     
     useEffect(() => {
         const verifyData = async () => {

@@ -29,7 +29,7 @@ function BiddingDetails() {
             condition_obj: condition_obj,
           },
         });
-        setBidDetails(response.data.bidDetails);
+        setBidDetails(response?.data?.bidDetails);
       } catch (error) {
         console.error("Error fetching data:", error);
       }

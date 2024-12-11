@@ -20,7 +20,7 @@ function SubCategories() {
             condition_obj: condition_obj,
           },
         });
-        setSubCatList(response.data.categoryDetails);
+        setSubCatList(response?.data?.categoryDetails);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
