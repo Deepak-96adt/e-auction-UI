@@ -67,7 +67,7 @@ function BidProductList() {
                           <td>Description</td>
                           <td>Baseprice</td>
                           <td>ProductImg</td>
-                          <td>Info</td>
+                          <td>Created_at</td>
                           <td>Action</td>
                         </tr>
                       </thead>
@@ -79,8 +79,8 @@ function BidProductList() {
                             <td>{row.subcatnm}</td>
                             <td>{row.description}</td>
                             <td>{row.baseprice}</td>
-                            <td className="w-25" ><img className="w-50 h-50" src={`../img/upload/product-img/${row.piconnm}`} alt="" /></td>
-                            <td>{row.info}</td>
+                            <td className="w-25" ><img className="w-50 h-50" src={`http://localhost:3001/uploads/product-img/${row.piconnm}`} alt="product image" /></td>
+                            <td>{row.created_at}</td>
                             <td>{
                               <Link className="btn text-primary" to={`/biddingdetails/${row._id}`}>Show bid</Link>
                               }</td>                            

@@ -56,7 +56,7 @@ function Login() {
             localStorage.setItem("city", user.city);
             localStorage.setItem("gender", user.gender);
             localStorage.setItem("role", user.role);
-            localStorage.setItem("info", user.info);
+            localStorage.setItem("created_at", user.created_at);
             user.role === "admin" ? navigate("/admin") : navigate("/user");
           })
           .catch((error) => {

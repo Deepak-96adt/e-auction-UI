@@ -42,7 +42,7 @@ function ProductList() {
                 </div>
                 <div className="d-flex row justify-content-center">
                   {productList.map((row) => (
-                    <Cards iconnm={row.piconnm} name={row.title} folder="product-img" description={row.description} baseprice={row.baseprice} path="#" _id={row._id} info={row.info}/>
+                    <Cards iconnm={row.piconnm} name={row.title} folder="product-img" description={row.description} baseprice={row.baseprice} path="#" _id={row._id} created_at={row.created_at}/>
                   ))}
                 </div>
               </div>

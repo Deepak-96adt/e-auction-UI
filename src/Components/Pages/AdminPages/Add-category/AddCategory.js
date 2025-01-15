@@ -8,59 +8,79 @@ function AddCategory() {
   const [catName, setCatName] = useState();
   const [file, setFile] = useState();
   const [output, setOutput] = useState();
-  const [myAlert , setMyAlert] = useState(null);
+  const [myAlert, setMyAlert] = useState(null); 
+  // const [image, setImage] = useState(null); 
+  // const [imageUrl, setImageUrl] = useState(null);
 
   const handleChange = (event) => {
+    // setImage(event.target.files[0]);
     setFile(event.target.files[0]);
   };
 
-  const showAlert=(type,message)=>{
+  const showAlert = (type, message) => {
     setMyAlert({
-      type:type,
-      message:message
+      type: type,
+      message: message
     })
-  }  
+  }
+
+  // const handleUpload = async () => {
+
+  //   const formData = new FormData();
+  //   formData.append('image', image);
+
+  //   try {
+  //     const response = await axios.post('http://localhost:3001/upload', formData, {
+  //       headers: { 'Content-Type': 'multipart/form-data' },
+  //     });
+  //     const fullimageUrl = 'http://localhost:3001' + response.data.imageUrl;
+  //     setImageUrl(fullimageUrl);
+  //   } catch (error) {
+  //     console.error('Error uploading the file:', error);
+  //   }
+  // };
 
   const handleAddCat = () => {
 
     if (!catName) {
       setOutput("* Category Name is required");
-      setTimeout(()=>{
+      setTimeout(() => {
         setOutput("");
-      },3000);
-    } else if (document.getElementById("myFile").value=="") {
+      }, 3000);
+    } else if (document.getElementById("myFile").value == "") {
       setOutput("* Category image is required");
-      setTimeout(()=>{
+      setTimeout(() => {
         setOutput("");
-      },3000);
+      }, 3000);
     } else {
 
-    const formData = new FormData();
+      const formData = new FormData();
 
-    formData.append("catnm", catName);
-    formData.append("caticon", file);
+      formData.append("catnm", catName);
+      formData.append("caticon", file);
 
-    const config = {
-      "content-type": "multipart/form-data",
-    };
+      const config = {
+        "content-type": "multipart/form-data",
+      };
 
-    axios
-      .post(SaveCategoryApi, formData, config)
-      .then((response) => {
-        showAlert("success",response.data.status);
-        setCatName("");
-        document.getElementById("myFile").value="";
-        setTimeout(()=>{
-          setMyAlert(null);
-        },3000)
-      })
-      .catch((error) => {
-        console.error(error);
-        showAlert("danger",error.message);
-        setTimeout(()=>{
-          setMyAlert(null);
-        },3000)
-      });
+      axios
+        .post(SaveCategoryApi, formData, config)
+        // .post(SaveCategoryApi, { catnm: catName, caticon: file })
+        .then((response) => {
+          showAlert("success", response.data.status);
+          setCatName("");
+          document.getElementById("myFile").value = "";
+          setTimeout(() => {
+            setMyAlert(null);
+          }, 3000)
+        })
+        .catch((error) => {
+          console.error(error);
+          showAlert("danger", error.message);
+          setTimeout(() => {
+            setMyAlert(null);
+          }, 3000)
+        });
     }
   };
 
@@ -70,7 +90,7 @@ function AddCategory() {
       <div className="container-fluid bg-light overflow-hidden px-lg-0">
         <div className="container about px-lg-0">
           <div className="row g-0 mx-lg-0">
-            <Alert alert={myAlert}/>
+            <Alert alert={myAlert} />
             <div className="col-lg-12 about-text wow fadeIn">
               <div className="p-lg-5 pe-lg-0">
                 <div className="section-title text-start">
@@ -109,6 +129,7 @@ function AddCategory() {
                         type="button"
                         id="addCatBtn"
                         onClick={() => {
+                          // handleUpload();
                           handleAddCat();
                         }}
                       >

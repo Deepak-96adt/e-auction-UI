@@ -6,9 +6,11 @@ import { FetchBidApi, SavePaymentApi } from "../../../../ApiUrls";
 import { useState } from "react";
 function Cards(props) {
 
+  
+
   const [bidDetails,setBidDetails]=useState();
   
-  let dateObject = new Date(props.info);
+  let dateObject = new Date(props.created_at);
   let date = dateObject.getDate();
   let month = dateObject.getMonth();
   let year = dateObject.getFullYear();
@@ -24,7 +26,7 @@ function Cards(props) {
 
 const Now = new Date();
 const endTime = new Date(
-  dateObject.getTime() + 48 * 60 * 60 * 1000
+  dateObject.getTime() + 1 * 10 * 60 * 1000
 );
 const difference = endTime - Now;
 
@@ -41,8 +43,10 @@ if (props.path=="#") {
 }
 
 const handlePayment = async () => {
+  console.log(difference);
+  
   const paymentDetails={
-    user_email:bidDetails.user_email,
+    user_email:bidDetails.useremail,
     title:props.name,
     description:props.description,
     bidprice:bidDetails.bidprice
@@ -73,7 +77,7 @@ const handlePayment = async () => {
             <img
               className="card-img-top"
               style={{ height: "12rem" }}
-              src={`../img/upload/${props.folder}/${props.iconnm}`}
+              src={`http://localhost:3001/uploads/${props.folder}/${props.iconnm}`}
               alt="Category image"
             />
             <div className="card-body">
@@ -91,14 +95,20 @@ const handlePayment = async () => {
               <strong>Product added</strong>:<span className="text-primary">{date+"-"+monthName+"-"+year+" , "+dayName+" , "+ timeString}</span>
             </div>
             <div className="card-text text-center pb-3">
-              <CountdownTimer createdAt={props.info}/>
+              <CountdownTimer createdAt={props.created_at}/>
             </div>
-            {difference > 0 ? <Link className="btn btn-primary w-100 rounded-3" to={`/bidproduct/${props._id}`}>
+            {/* {difference > 0 ? <Link className="btn btn-primary w-100 rounded-3" to={`/bidproduct/${props._id}`}>
               Bid Runing
             </Link> :
             <button className="btn btn-primary w-100 rounded-3" onClick={()=>{handlePayment()}}>
             Buy Now
-          </button>}
+          </button>} */}
+            {/* <Link className="btn btn-primary w-100 rounded-3" to={`/bidproduct/${props._id}`}>
+              Bid Runing
+            </Link> */}
+            <button className="btn btn-primary w-100 rounded-3" onClick={()=>{handlePayment()}}>
+            Buy Now
+          </button>
             </div>
           </div>
       ) : (
@@ -106,8 +116,8 @@ const handlePayment = async () => {
           <img
             className="card-img-top"
             style={{ height: "12rem" }}
-            src={`../img/upload/${props.folder}/${props.iconnm}`}
-            alt="Category image"
+            src={`http://localhost:3001/uploads/${props.folder}/${props.iconnm}`}
+            alt="image"
           />
           <div className="card-body">
             <h4 className="card-title text-center" id="catnmId">

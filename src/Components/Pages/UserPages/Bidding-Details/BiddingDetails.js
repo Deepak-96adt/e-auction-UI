@@ -61,7 +61,7 @@ function BiddingDetails() {
                           <td>ProductId</td>
                           <td>userId</td>
                           <td>Bidding Price</td>
-                          <td>Info</td>
+                          <td>Created_at</td>
                         </tr>
                       </thead>
                       <tbody class="tbody-light border-dark">
@@ -69,9 +69,9 @@ function BiddingDetails() {
                           <tr key={row._id}>
                             <td>{row._id}</td>
                             <td>{row.p_id}</td>
-                            <td>{row.user_email}</td>
+                            <td>{row.useremail}</td>
                             <td>{row.bidprice}</td>
-                            <td>{row.info}</td>                            
+                            <td>{row.created_at}</td>                            
                           </tr>
                         ))}
                       </tbody>

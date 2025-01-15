@@ -5,7 +5,7 @@ function Logout() {
     localStorage.removeItem("mobile");
     localStorage.removeItem("role");
     localStorage.removeItem("gender");
-    localStorage.removeItem("info");
+    localStorage.removeItem("created_at");
     localStorage.removeItem("address");
     localStorage.removeItem("_id");
     localStorage.removeItem("email");

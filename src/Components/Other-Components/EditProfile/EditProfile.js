@@ -77,7 +77,7 @@ function EditProfile() {
           city: city,
           gender: gender,
           address: address,
-          // info: Date(),
+          // created_at: Date(),
         };
       }
       content_obj = {
@@ -86,7 +86,7 @@ function EditProfile() {
         city: city,
         gender: gender,
         address: address,
-        // info: Date(),
+        // created_at: Date(),
       };
 
       let condition_obj = {

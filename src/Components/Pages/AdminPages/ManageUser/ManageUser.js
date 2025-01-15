@@ -130,7 +130,7 @@ function ManageUser() {
                           <td>Address</td>
                           <td>City</td>
                           <td>Gender</td>
-                          <td>Info</td>
+                          <td>Created_at</td>
                           <td>Status</td>
                           <td>Action</td>
                         </tr>
@@ -145,7 +145,7 @@ function ManageUser() {
                             <td>{row.address}</td>
                             <td>{row.city}</td>
                             <td>{row.gender}</td>
-                            <td>{row.info}</td>
+                            <td>{row.created_at}</td>
                             <td>
                               {row.status === 1 && (
                                 <span className="text-success">Verified</span>
